@@ -4,8 +4,8 @@
 // @version      0.2
 // @description  Adds a copy button to each anchor tag
 // @author       @pehaa
-// @downloadURL  https://github.com/pehaa/taming-tampermonkey/wcdocs.user.js
-// @updateURL    https://github.com/pehaa/taming-tampermonkey/wcdocs.user.js
+// @downloadURL  https://github.com/pehaa/taming-tampermonkey/raw/main/wcdocs.user.js
+// @updateURL    https://github.com/pehaa/taming-tampermonkey/raw/main/wcdocs.user.js
 // @match        https://woocommerce.com/document/*
 // @grant        GM_addStyle
 // @require      https://unpkg.com/clipboard@2/dist/clipboard.min.js
