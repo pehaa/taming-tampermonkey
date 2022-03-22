@@ -11,10 +11,6 @@
 // @require      https://unpkg.com/clipboard@2/dist/clipboard.min.js
 // ==/UserScript==
 
-// temporarily disable tracking
-// @require      https://gist.githubusercontent.com/klimeryk/6eca2fff0120104a733e6e98ee1026a8/raw/172aeeff7565c933d27165f4781a4f7e7d186c1a/trackUsage
-// trackUsage("woo-docs-clipboard");
-
 /**
  * Adds a copy-to-clipboard button for each heading in the WooCommerce Docs.
  */
