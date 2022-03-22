@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Pajka - Clipboard.js for WooCommerce Docs
 // @namespace    https://woocommerce.com/document
-// @version      0.1
+// @version      0.2
 // @description  Adds a copy button to each anchor tag
 // @author       @pehaa
 // @downloadURL  https://github.com/pehaa/taming-tampermonkey/wcdocs.user.js
