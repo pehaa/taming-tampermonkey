@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Pajka - Clipboard.js for WooCommerce Docs
+// @name         Pajka - my Clipboard.js for WooCommerce Docs
 // @namespace    https://woocommerce.com/document
 // @version      0.2
 // @description  Adds a copy button to each anchor tag
