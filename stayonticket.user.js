@@ -13,11 +13,11 @@
 
 ;(function () {
   "use strict"
-  console.log("Pajka always stay on ticket loaded")
+  console.log("TM: Pajka always stay on ticket loaded")
 
   if (window.onurlchange === null) {
     window.addEventListener("urlchange", (info) => {
-      console.log("TM url changed", document.location.href)
+      console.log("TM: url changed", document.location.href)
       window.addEventListener("load", () => {
         const button = document.querySelector(
           'button[data-test-id="ticket-footer-post-save-actions-menu-button"]'
