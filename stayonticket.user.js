@@ -12,24 +12,40 @@
 // ==/UserScript==
 
 ;(function () {
-  "use strict"
-  console.log("TM: Pajka always stay on ticket loaded")
+  "use strict";
+  console.log("TM: Pajka - Always stay on ticket loaded");
 
-  if (window.onurlchange === null) {
-    window.addEventListener("urlchange", (info) => {
-      console.log("TM: url changed", document.location.href)
-      window.addEventListener("load", () => {
-        const button = document.querySelector(
-          'button[data-test-id="ticket-footer-post-save-actions-menu-button"]'
-        )
-        button?.click()
-        setTimeout(() => {
-          const option = document.querySelector(
-            'li[data-test-action="stay_on_ticket"]'
-          )
-          option?.click()
-        })
-      })
-    })
-  }
-})()
+  let oldHref = document.location.href;
+
+  console.log(oldHref);
+
+  window.onload = function () {
+    const bodyList = document.querySelector("body");
+
+    const observer = new MutationObserver(function (mutations) {
+      mutations.forEach(function (mutation) {
+        if (oldHref != document.location.href) {
+          console.log("TM: url changed", document.location.href);
+          oldHref = document.location.href;
+          const button = document.querySelector(
+            'button[data-test-id="ticket-footer-post-save-actions-menu-button"]'
+          );
+          button?.click();
+          setTimeout(() => {
+            const option = document.querySelector(
+              'li[data-test-action="stay_on_ticket"]'
+            );
+            option?.click();
+          });
+        }
+      });
+    });
+
+    const config = {
+      childList: true,
+      subtree: true
+    };
+
+    observer.observe(bodyList, config);
+  };
+})();
