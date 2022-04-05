@@ -2,7 +2,7 @@
 // @name         Pajka - my Clipboard.js for Wooniversity
 // @namespace    https://wooniversity.wordpress.com/
 // @version      0.1
-// @description  Adds a copy button to each anchor tag
+// @description  Adds a copy button to each anchor tag in WN
 // @author       @pehaa
 // @downloadURL  https://github.com/pehaa/taming-tampermonkey/raw/main/wn.user.js
 // @updateURL    https://github.com/pehaa/taming-tampermonkey/raw/main/wn.user.js
