@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Pajka - Preview Zendesk Notes
 // @namespace    https://woothemes.zendesk.com/
-// @version      0.1
+// @version      0.1.1
 // @description  Preview private note using a draggable details element
 // @author       @pehaa
 // @downloadURL  https://github.com/pehaa/taming-tampermonkey/raw/main/previewzdnote.user.js
@@ -21,7 +21,7 @@ GM_addStyle(`
       display: inline-block;
       box-sizing: border-box;
       	border: 1px solid #EFDAA3;
-        padding: 10px;
+        padding: 4px;
         cursor: grab;
     }
     #privatenote-md-preview summary {
@@ -30,7 +30,7 @@ GM_addStyle(`
     #privatenote-md-preview[open] {
     max-width:100%;
     width: 600px;
-      padding: 10px;
+      padding: 12px;
     }
     #privatenote-md-preview .markdown_preview {
       max-height: calc(100vh - 64px);
