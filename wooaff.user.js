@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         Pajka - Highlight Product Links without affiliate link
+// @name         Highlight Product Links Without Affiliate Code
 // @namespace    https://woothemes.zendesk.com/
-// @version      0.0.3
-// @description  Highlights links withoug affiliate link with a magenta border. Styles are applied only in Zendesk, via CSS, message is not affected.
+// @version      0.0.4
+// @description  Highlights links withoug affiliate link with a magenta border. Styles are applied only in Zendesk, via CSS, reply is not affected.
 // @author       @pehaa
 // @downloadURL  https://github.com/pehaa/taming-tampermonkey/raw/main/wooaff.user.js
 // @updateURL    https://github.com/pehaa/taming-tampermonkey/raw/main/wooaff.user.js
