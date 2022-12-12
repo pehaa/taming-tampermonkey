@@ -11,13 +11,12 @@
 // ==/UserScript==
 
 /**
- * Adds css style for links that start with https://woocommerce.com/products/ and does not end with ?aff=10486&cid=1131038 or don't contain utm_campaign.
+ * Adds css style for links that start with https://woocommerce.com/products/ and do not end with ?aff=10486&cid=1131038 or don't contain utm_campaign.
  */
 
 // load styles
 
 GM_addStyle(`
-
 .grid-main-conversation-panel a[href^="https://woocommerce.com/products/"]:not([href$="?aff=10486&cid=1131038"]):not([href*="utm_campaign"]),
 .grid-main-conversation-panel a[href^="http://woocommerce.com/products/"]:not([href$="?aff=10486&cid=1131038"]):not([href*="utm_campaign"])
   {
