@@ -3,7 +3,7 @@
 // @namespace    http://automattic.com/
 // @version      0.1
 // @description  This script adds CSS styles that make the right sidebar (navigation to different debug sections) sticky on scroll
-// @author       @pehaa
+// @author       Paulina Hetman
 // @match        https://tools.jetpack.com/debug/?url=*
 // @match        https://jptools.wordpress.com/debug/?url=*
 // @downloadURL  https://github.com/pehaa/taming-tampermonkey/raw/main/jpdebuggerstickysections.user.js
