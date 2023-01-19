@@ -1,9 +1,9 @@
 // ==UserScript==
-// @name         Pajka - my Clipboard.js for Field Guide
+// @name         Clipboard links for Field Guide
 // @namespace    https://fieldguide.automattic.com/
-// @version      0.1
+// @version      0.2
 // @description  Adds a copy button to each anchor tag in Field Guide
-// @author       @pehaa
+// @author       Paulina Hetman
 // @downloadURL  https://github.com/pehaa/taming-tampermonkey/raw/main/fg-links.user.js
 // @updateURL    https://github.com/pehaa/taming-tampermonkey/raw/main/fg-links.user.js
 // @match        https://fieldguide.automattic.com/*
@@ -25,15 +25,18 @@ GM_addStyle(`
     }
     button.copy-button {
       background-color: #f3f6f8;
+      color: black;
+      font-family: inherit;
+      text-transform: uppercase;
       padding: 1px;
       border-radius: 0;
       margin-left: 7px;
       border: 1px solid rgba(0, 0, 0, 0.05);
       font-size: 12px;
-	  display: inline-flex;
-	  align-items: center;
-	  margin-bottom: 0;
-	  vertical-align: middle;
+	    display: inline-flex;
+	    align-items: center;
+	    margin-bottom: 0;
+	    vertical-align: middle;
     }
     button.copy-button img {
       width: 20px;
