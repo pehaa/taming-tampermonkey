@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Clipboard links for Jetpack Docs
 // @namespace    https://jetpack.com
-// @version      0.2
+// @version      0.3
 // @description  Adds a copy button to each anchor tag
 // @author       Paulina Hetman
 // @downloadURL  https://github.com/pehaa/taming-tampermonkey/raw/main/jetpackdocs-links.user.js
@@ -68,6 +68,8 @@ GM_addStyle(`
 		),
 	];
 
+	const startPhrase = "You can read more in";
+
 	const supportPageTitles = [
 		...document.querySelectorAll("h1.entry-title:not([id])"),
 	];
@@ -90,9 +92,12 @@ GM_addStyle(`
 		const headingText = [...heading.childNodes].find((el) => el.textContent);
 		// if there is some text content then insert button2
 		if (headingText) {
-			const toBeCopied2 = `You can read more in [${headingText.textContent}.](${href})`;
+			const toBeCopied2 = `${startPhrase} [${headingText.textContent}.](${href})`;
 			const button2 = `<button class="copy-button" data-clipboard-text='${toBeCopied2}'>md${imgHTML}</button>${toolTipHTML}`;
 			heading.insertAdjacentHTML("beforeend", button2);
+			const toBeCopied3 = `${startPhrase} <a href="${href}">${headingText.textContent}.</a>`;
+			const button3 = `<button class="copy-button" data-clipboard-text='${toBeCopied3}'></>${imgHTML}</button>${toolTipHTML}`;
+			heading.insertAdjacentHTML("beforeend", button3);
 		}
 	}
 

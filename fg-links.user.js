@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Clipboard links for Field Guide
 // @namespace    https://fieldguide.automattic.com/
-// @version      0.2
+// @version      0.3
 // @description  Adds a copy button to each anchor tag in Field Guide
 // @author       Paulina Hetman
 // @downloadURL  https://github.com/pehaa/taming-tampermonkey/raw/main/fg-links.user.js
@@ -64,6 +64,8 @@ GM_addStyle(`
 		...document.querySelectorAll("h1[id], h2[id], h3[id], h4[id], h4[id]"),
 	];
 
+	const startPhrase = "See in";
+
 	const imgHTML =
 		'<img src="https://s0.wp.com/wp-content/themes/a8c/wpsupport2/i/clipboard.svg" alt="Copy to clipboard" scale="0">';
 	const toolTipHTML = '<div class="copied">Copied!</div>';
@@ -77,10 +79,17 @@ GM_addStyle(`
 		const button1 = `<button class="copy-button" data-clipboard-text="${toBeCopied1}">${imgHTML}</button>${toolTipHTML}`;
 		heading.insertAdjacentHTML("beforeend", button1);
 
-		// insert button2
-		const toBeCopied2 = `as per [FG - ${heading.childNodes[0].textContent}](${href})`;
-		const button2 = `<button class="copy-button" data-clipboard-text='${toBeCopied2}'>md${imgHTML}</button>${toolTipHTML}`;
-		heading.insertAdjacentHTML("beforeend", button2);
+		// search heading for an element with textContent
+		const headingText = [...heading.childNodes].find((el) => el.textContent);
+		// if there is some text content then insert button2
+		if (headingText) {
+			const toBeCopied2 = `${startPhrase} [${headingText.textContent}.](${href})`;
+			const button2 = `<button class="copy-button" data-clipboard-text='${toBeCopied2}'>md${imgHTML}</button>${toolTipHTML}`;
+			heading.insertAdjacentHTML("beforeend", button2);
+			const toBeCopied3 = `${startPhrase} <a href="${href}">${headingText.textContent}.</a>`;
+			const button3 = `<button class="copy-button" data-clipboard-text='${toBeCopied3}'></>${imgHTML}</button>${toolTipHTML}`;
+			heading.insertAdjacentHTML("beforeend", button3);
+		}
 	}
 
 	// See https://www.npmjs.com/package/clipboard - Setup and Copy text from attribute
