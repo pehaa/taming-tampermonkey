@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Clipboard links for Field Guide
 // @namespace    https://fieldguide.automattic.com/
-// @version      0.3.2
+// @version      0.4.0
 // @description  Adds a copy button to each anchor tag in Field Guide
 // @author       Paulina Hetman
 // @downloadURL  https://github.com/pehaa/taming-tampermonkey/raw/main/fg-links.user.js
@@ -86,9 +86,6 @@ GM_addStyle(`
 			const toBeCopied2 = `${startPhrase} [${headingText.textContent}.](${href})`;
 			const button2 = `<button class="copy-button" data-clipboard-text='${toBeCopied2}'>md${imgHTML}</button>${toolTipHTML}`;
 			heading.insertAdjacentHTML("beforeend", button2);
-			const toBeCopied3 = `${startPhrase} <a href="${href}">${headingText.textContent}.</a>`;
-			const button3 = `<button class="copy-button" data-clipboard-text='${toBeCopied3}'>&lt;/&gt;${imgHTML}</button>${toolTipHTML}`;
-			heading.insertAdjacentHTML("beforeend", button3);
 		}
 	}
 
