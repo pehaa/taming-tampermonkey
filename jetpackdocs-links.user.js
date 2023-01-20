@@ -1,12 +1,12 @@
 // ==UserScript==
 // @name         Clipboard links for Jetpack Docs
 // @namespace    https://jetpack.com
-// @version      0.1
+// @version      0.2
 // @description  Adds a copy button to each anchor tag
 // @author       Paulina Hetman
 // @downloadURL  https://github.com/pehaa/taming-tampermonkey/raw/main/jetpackdocs-links.user.js
 // @updateURL    https://github.com/pehaa/taming-tampermonkey/raw/main/jetpackdocs-links.user.js
-// @match        https://jetpack.com/*
+// @match        https://*.jetpack.com/*
 // @grant        GM_addStyle
 // @require      https://unpkg.com/clipboard@2/dist/clipboard.min.js
 // ==/UserScript==
@@ -24,6 +24,7 @@ GM_addStyle(`
       border: 0;
     }
     button.copy-button {
+      text-transform: uppercase;
       background-color: #f3f6f8;
       padding: 1px;
       border-radius: 0;
@@ -51,14 +52,24 @@ GM_addStyle(`
       border-radius: 10px;
       padding: 2px 10px;
     }
+    button.copy-button + .copied {
+      text-shadow: none;
+    }
   `);
 (function () {
 	"use strict";
 
-	// select all h1..h4 that have an attribute id
+	// select all h1..h5 that have an attribute id, include also page title (h1.entry-title) even if it does not have an id attribute
 	// I'm going to loop them as an array so I transform the selection to an array [...Selection]
+
 	const headings = [
-		...document.querySelectorAll("h1[id], h2[id], h3[id], h4[id], h5[id]"),
+		...document.querySelectorAll(
+			"h1[id], h1.entry-title, h2[id], h3[id], h4[id], h5[id]"
+		),
+	];
+
+	const supportPageTitles = [
+		...document.querySelectorAll("h1.entry-title:not([id])"),
 	];
 
 	const imgHTML =
@@ -67,17 +78,22 @@ GM_addStyle(`
 
 	for (const heading of headings) {
 		// href from the heading.id
-		const href = `${location.protocol}//${location.host}${location.pathname}#${heading.id}`;
+		let href = `${location.protocol}//${location.host}${location.pathname}`;
+		href += heading.id ? `#${heading.id}` : "";
 
 		// Insert button1
 		const toBeCopied1 = href;
 		const button1 = `<button class="copy-button" data-clipboard-text="${toBeCopied1}">${imgHTML}</button>${toolTipHTML}`;
 		heading.insertAdjacentHTML("beforeend", button1);
 
-		// insert button2
-		const toBeCopied2 = `You can read more in ["${heading.childNodes[0].textContent}".](${href})`;
-		const button2 = `<button class="copy-button" data-clipboard-text='${toBeCopied2}'>md${imgHTML}</button>${toolTipHTML}`;
-		heading.insertAdjacentHTML("beforeend", button2);
+		// search heading for an element with textContent
+		const headingText = [...heading.childNodes].find((el) => el.textContent);
+		// if there is some text content then insert button2
+		if (headingText) {
+			const toBeCopied2 = `You can read more in [${headingText.textContent}.](${href})`;
+			const button2 = `<button class="copy-button" data-clipboard-text='${toBeCopied2}'>md${imgHTML}</button>${toolTipHTML}`;
+			heading.insertAdjacentHTML("beforeend", button2);
+		}
 	}
 
 	// See https://www.npmjs.com/package/clipboard - Setup and Copy text from attribute
