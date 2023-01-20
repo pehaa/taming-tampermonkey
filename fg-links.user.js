@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Clipboard links for Field Guide
 // @namespace    https://fieldguide.automattic.com/
-// @version      0.4.1
+// @version      0.4.2
 // @description  Adds a copy button to each anchor tag in Field Guide
 // @author       Paulina Hetman
 // @downloadURL  https://github.com/pehaa/taming-tampermonkey/raw/main/fg-links.user.js
@@ -64,7 +64,7 @@ GM_addStyle(`
 		...document.querySelectorAll("h1[id], h2[id], h3[id], h4[id], h4[id]"),
 	];
 
-	const startPhrase = "See in";
+	const startPhrase = "See in FG -";
 
 	const imgHTML =
 		'<img src="https://s0.wp.com/wp-content/themes/a8c/wpsupport2/i/clipboard.svg" alt="Copy to clipboard" scale="0">';
