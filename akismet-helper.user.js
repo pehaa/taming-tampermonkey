@@ -11,8 +11,11 @@
 // @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
 // @grant        GM_xmlhttpRequest
 // @require      https://unpkg.com/clipboard@2/dist/clipboard.min.js
+// @require      https://gist.githubusercontent.com/klimeryk/6eca2fff0120104a733e6e98ee1026a8/raw/172aeeff7565c933d27165f4781a4f7e7d186c1a/trackUsage
 
 // ==/UserScript==
+
+trackUsage("zendesk-akismet-helpers");
 
 (function () {
 	"use strict";
