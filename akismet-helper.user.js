@@ -3,7 +3,9 @@
 // @namespace    https://automattic.com/
 // @version      0.1
 // @description  Automattic upgrades to Zendesk for Akismet support, cross-browser. This scripts generates the test link that we send to the commenters that contact us regarding their comments “disappearing” or being flagged as spam. The link is copied to clipboard.
-// @author       You
+// @author       Paulina Hetman updated older version that didn't have author specified
+// @downloadURL  https://github.com/pehaa/taming-tampermonkey/raw/main/akismet-helper.user.js
+// @updateURL    https://github.com/pehaa/taming-tampermonkey/raw/main/akismet-helper.user.js
 // @match        https://woothemes.zendesk.com/*
 // @connect      mc.a8c.com
 // @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
