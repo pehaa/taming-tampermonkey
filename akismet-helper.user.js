@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         New Userscript - Akismet helper
-// @namespace    https://automattic.com/
+// @namespace    http://automattic.com/zendesk/akismet/
 // @version      0.1
 // @description  Automattic upgrades to Zendesk for Akismet support, cross-browser. This scripts generates the test link that we send to the commenters that contact us regarding their comments “disappearing” or being flagged as spam. The link is copied to clipboard.
 // @author       Paulina Hetman updated older version that didn't have author specified
