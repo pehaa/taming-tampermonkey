@@ -1,12 +1,12 @@
 // ==UserScript==
 // @name         Pajka - Preview Zendesk Notes
-// @namespace    https://woothemes.zendesk.com/
-// @version      0.1.1
+// @namespace    https://a8c.zendesk.com/
+// @version      0.2.0
 // @description  Preview private note using a draggable details element
 // @author       @pehaa
 // @downloadURL  https://github.com/pehaa/taming-tampermonkey/raw/main/previewzdnote.user.js
 // @updateURL    https://github.com/pehaa/taming-tampermonkey/raw/main/previewzdnote.user.js
-// @match        https://woothemes.zendesk.com/agent/*
+// @match        https://a8c.zendesk.com/agent/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=zendesk.com
 // @grant        GM_addStyle
 // @require      https://unpkg.com/showdown/dist/showdown.min.js
